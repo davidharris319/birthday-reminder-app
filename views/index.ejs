@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Birthday Reminder App></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo left">Birthday Reminder App</a>
+          <!-- Add login UI here -->
+          <ul class="right">
+            <li>
+            <% if (user) { %>
+              <a href="/logout">Log Out</a>
+            <% } else { %>
+              <a href="/auth/google">Login with Google</a>
+            <% } %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <p> Welcome to the Birthday Reminder App! Use this app to receive a friendly text message on all of your friend's birthdays!</p>
   </body>
 </html>
