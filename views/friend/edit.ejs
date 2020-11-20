@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/friend/<% friend._id %>?_method=PUT" method="POST">
+  <label>First Name:</label>
+  <input type="text" name="firstName" value="<%= friend.firstName %>">
+  <label>Last Name:</label>
+  <input type="text" name="lastName" value="<% friend.lastName %>">
+  <label>Birthday</label>
+  <input type="date" name="birthday" value="<% friend.birthday %>">
+  <input type="submit" value="Update Friend Info">
+</form>
+
+<%- include('../partials/footer') %>

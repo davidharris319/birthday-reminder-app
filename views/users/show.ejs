@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Name: </div>
+  <div><%= profile.name %></div>
+  <div>Email: </div>
+  <div><%= profile.email %></div>
+  <div>Phone Number: </div>
+  <div><%= profile.phoneNumber %></div>
+</section>
+
+<% if (user.friends.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Birthday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% user.friends.forEach(function(f, index) { %>
+      <tr>
+        <td><%= f.firstName %></td>
+        <td><%= f.lastName %></td>
+        <td><%= f.birthday %></td>
+        <td>
+          <form action="/user/<%= user._id %>/friends?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit">X</button>
+            <input type="hidden" id="reviewIndex" name="index" value=<%= index %>>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <h5>No Reviews Yet</h5>
+  <% } %>
+
+<%- include('../partials/footer') %>

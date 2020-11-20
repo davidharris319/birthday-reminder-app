@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="user/<%= user._id %>/" method="POST">
+  <label>Name:</label>
+  <input type="text" name="firstName">
+  <label>Name:</label>
+  <input type="text" name="lastName">
+  <label>Email:</label>
+  <input type="date" name="birthday">
+  <input type="submit" value="Add Friend">
+</form>
+
+<%- include('../partials/footer') %>

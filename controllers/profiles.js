@@ -25,7 +25,7 @@ function edit(req, res) {
   Profile.findById(req.params.id, function(err, profile) {
     // Verify profile is 'owner' by logges in user
     if (!profile.user.equals(req.user._id)) return res.redirect('/profile');
-    res.render('profile/edit', {profile});
+    res.render(`/profile/${profile._id}/edit`, {profile});
   })
 }
 
