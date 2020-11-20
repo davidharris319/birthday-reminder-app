@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/profile/<% profile._id %>?_method=PUT" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name" value="<%= profile.name %>">
+  <label>Email:</label>
+  <input type="text" name="email" value="<% profile.email %>">
+  <label>Birthday</label>
+  <input type="date" name="birthday" value="<% profile.birthday %>">
+  <label>Phone Number:</label>
+  <input type="text" name="phoneNumber" value="<% profile.phoneNumber %>">
+  <input type="submit" value="Update Profile">
+</form>
+
+<%- include('../partials/footer') %>

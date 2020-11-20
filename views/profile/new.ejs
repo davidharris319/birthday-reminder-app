@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/profile" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Email:</label>
+  <input type="text" name="email">
+  <label>Birthday</label>
+  <input type="date" name="birthday">
+  <label>Phone Number:</label>
+  <input type="text" name="phoneNumber">
+  <input type="submit" value="Create Profile">
+</form>
+
+
+
+<%- include('../partials/footer') %>
