@@ -1,11 +1,5 @@
-const Friend = require('../models/friend');
+const user = require('../models/user');
 const User = require('../models/user');
-
-const { render } = require('../server');
-
-function newFriend(req, res) {
-  res.render('friend/new');
-}
 
 function create(req, res) {
   User.findById(req.params.id, function(err, user) {
@@ -14,33 +8,44 @@ function create(req, res) {
     // Add the friend
     user.friends.push(req.body);
     user.save(function(err) {
-      res.redirect(`/user/${user._id}`);
+      res.redirect(`/users/${user._id}`);
     });
   });
 }
 
 function edit(req, res) {
-  Friend.findById(req.params.id, function(err, friend) {
-    // Verify friend is 'owner' by logges in user
-    if (!friend.user.equals(req.user._id)) return res.redirect('/');
-    res.render(`friend/${friend._id}/edit`, {friend});
-  })
+  User.findOne({'friends._id': req.params.id}).then(user =>
+    {
+      const friendSubdoc = user.friends.id(req.params.id);      
+      res.render(`friend/edit`, {friend: friendSubdoc})
+    });
 }
 
 function update(req, res) {
   User.findOne({'friends._id': req.params.id}, function(err, user) {
-    const friendSubdoc = user.friend.id(req.params.id);
-    if(!friendSubdoc.userId.equals(req.user._id)) return res.redirect(`/friend/${friend._id}`);
-    friendSubdoc.text = req.body.text;
+    const friendSubdoc = user.friends.id(req.params.id);
+    friendSubdoc.firstName = req.body.firstName;
+    friendSubdoc.lastName = req.body.lastName;
+    friendSubdoc.birthday = req.body.birthday;
     user.save(function(err) {
-      res.redirect(`/friend/${friend._id}`);
+      res.redirect(`/users/${user._id}`);
+    });
+  });
+}
+
+function deleteFriend(req, res) {
+  User.findOne({'friends._id': req.params.id}, function(err, user) {
+    const friendSubdoc = user.friends.id(req.params.id);
+    friendSubdoc.remove();
+    user.save(function(err) {
+      res.redirect(`/users/${user._id}`);
     });
   });
 }
 
 module.exports = {
-  new: newFriend,
   create,
-  edit,
-  update
+  update,
+  delete: deleteFriend,
+  edit
 }

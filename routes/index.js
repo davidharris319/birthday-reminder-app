@@ -5,7 +5,10 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { user: req.user});
+  if(req.user) {
+    return res.redirect(`/users/${req.user._id}`);
+  } 
+  return res.render('index');
 });
 
 // Google OAuth login route

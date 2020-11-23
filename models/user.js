@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 // sub documents 
 var friendSchema = new mongoose.Schema({
@@ -12,8 +13,10 @@ var friendSchema = new mongoose.Schema({
 // Main document
 const userSchema = new mongoose.Schema({
   name: String,
-  phoneNumber: String,
-  friends: [friendSchema]
+  email: String,
+  personalInfo: { type: Schema.Types.ObjectId, ref: 'Profile' },
+  friends: [friendSchema],
+  googleId: String,
 });
 
 module.exports = mongoose.model('User', userSchema);

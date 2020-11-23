@@ -5,7 +5,6 @@ var profileSchema = new mongoose.Schema({
   email: String,
   phoneNumber: String,
   birthday: String,
-  googleID: String
 }, {
   timestamps: true
 });

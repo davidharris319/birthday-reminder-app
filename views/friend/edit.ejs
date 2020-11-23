@@ -1,13 +1,26 @@
 <%- include('../partials/header') %>
 
-<form id="new-form" action="/friend/<% friend._id %>?_method=PUT" method="POST">
-  <label>First Name:</label>
-  <input type="text" name="firstName" value="<%= friend.firstName %>">
-  <label>Last Name:</label>
-  <input type="text" name="lastName" value="<% friend.lastName %>">
-  <label>Birthday</label>
-  <input type="date" name="birthday" value="<% friend.birthday %>">
-  <input type="submit" value="Update Friend Info">
-</form>
-
+<div class="mx-auto form-container">
+  <form id="new-form" action="/friends/<%= friend._id %>?_method=PUT" method="POST">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">First Name:</label>
+      <div class="col-sm-6">
+        <input class="form-control" type="text" name="firstName" value="<%= friend.firstName %>">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Last Name:</label>
+      <div class="col-sm-6">
+        <input class="form-control" type="text" name="lastName" value="<%= friend.lastName %>">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Birthday</label>
+        <input type="date" name="birthday" value="<%= friend.birthday %>">
+    </div>
+    <div class="btn-center">
+      <button class="btn btn-info" type="submit">Update Friend Info</button>
+    </div>
+  </form> 
+</div>
 <%- include('../partials/footer') %>

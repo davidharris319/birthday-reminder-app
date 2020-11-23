@@ -48,7 +48,7 @@ function setUser(req, res, next) {
 app.use('/', indexRouter);
 app.use('/profile', profileRouter);
 app.use('/users', usersRouter);
-app.use('/friends', friendsRouter);
+app.use('/', friendsRouter);
 
 
 // catch 404 and forward to error handler

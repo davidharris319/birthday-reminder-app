@@ -9,14 +9,18 @@ function create(req, res) {
   const profile = new Profile(req.body);
   //Asign the logged in user's id
   profile.user = req.user._id;
+  console.log(profile);
   profile.save(function(err) {
     if(err) return render('/profile/new', {profile});
-    res.redirect(`/profile/${profile._id}`);
+    req.user.personalInfo = profile._id;
+    req.user.save()
+    .then(() => res.redirect(`/profile/${profile._id}`))
   });
 }
 
 function show(req, res) {
   Profile.findById(req.params.id, function(err, profile) {
+    console.log(profile);
     res.render('profile/show', {profile})
   });
 }
@@ -24,16 +28,17 @@ function show(req, res) {
 function edit(req, res) {
   Profile.findById(req.params.id, function(err, profile) {
     // Verify profile is 'owner' by logges in user
-    if (!profile.user.equals(req.user._id)) return res.redirect('/profile');
-    res.render(`/profile/${profile._id}/edit`, {profile});
+    res.render(`profile/edit`, {profile});
   })
 }
 
 function update(req, res) {
-  Profile.findOne({'profile._id': req.params.id}, function(err, profile) {
-    const profileSubdoc = profile.id(req.params.id);
-    if(!profile.user.equals(req.user._id)) return res.redirect(`/profile/${profile._id}`);
-    profileSubdoc.text = req.body.text;
+  Profile.findById(req.params.id, function(err, profile) {
+    console.log(profile);
+    profile.name = req.body.name;
+    profile.email = req.body.email;
+    profile.birthday = req.body.birthday;
+    profile.phoneNumber= req.body.phoneNumber;
     profile.save(function(err) {
       res.redirect(`/profile/${profile._id}`);
     });
