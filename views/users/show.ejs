@@ -1,67 +1,64 @@
 <%- include('../partials/header') %>
-<div class="container">
-  <section id="show-page">
-    <div>Name: </div>
-    <div><%= user.name %></div>
-    <div>Email: </div>
-    <div><%= user.personalInfo.email %></div>
-    <div>Phone Number: </div>
-    <div><%= user.personalInfo.phoneNumber %></div>
+<div class="card text-center">
+  <h1 class="">Friend List</h1> 
+  <p>Add your friends to the below to receive a reminder text on their birthday. Never forget a friend's birthday again!</p>
   </section>
-  
-  <% if (user.friends.length > 0) { %>
-    <table class="table">
-      <thead>
-        <tr class="table-info">
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Birthday</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% user.friends.forEach(function(friend, index) { %>
-        <tr>
-          <td><%= friend.firstName %></td>
-          <td><%= friend.lastName %></td>
-          <td><%= friend.birthday %></td>
-          <td>
-            <button class="btn btn-info">
-              <a class="edit-button" href="/friends/<%=friend._id %>/edit">Edit</a>
-            </button>
-          </td>
-          <td>
-            <form action="/friends/<%= friend._id %>?_method=DELETE" class="delete-form" method="POST">
-              <button class="btn btn-danger" type="submit">X</button>
-            </form>
-          </td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
-  <% } else { %>
-  <h5>No Friends Added Yet</h5>
-  <% } %>
-  <div class="mx-auto form-container">
-    <form class="form-center" action="<%= user._id %>/friends" method="POST">
-      <div class="form-group">
-        <label>First Name:</label>
-        <input type="text" name="firstName">
-      </div>
-      <div class="form-group">
-        <label>Last Name:</label>
-        <input type="text" name="lastName">
-      </div>
-      <div class="form-group">
-        <label>Birthday:</label>
-        <input type="date" name="birthday">
-      </div>
-      <div class="btn-center">
-        <button class="btn btn-info" type="submit">Add Friend</button>
-      </div>
-    </form>  
+  <div class="container">
+    <% if (user.friends.length > 0) { %>
+      <table class="table">
+        <thead>
+          <tr class="table-info">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birthday</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% user.friends.forEach(function(friend, index) { %>
+          <tr>
+            <td><%= friend.firstName %></td>
+            <td><%= friend.lastName %></td>
+            <td><%= friend.birthday %></td>
+            <td>
+              <button class="btn btn-info">
+                <a class="edit-button" href="/friends/<%=friend._id %>/edit">Edit</a>
+              </button>
+            </td>
+            <td>
+              <form action="/friends/<%= friend._id %>?_method=DELETE" class="delete-form" method="POST">
+                <button class="btn btn-danger" type="submit">X</button>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+    <h5>No Friends Added Yet</h5>
+    <% } %>
+    <div class="mx-auto form-container">
+      <form class="form-center" action="<%= user._id %>/friends" method="POST">
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" name="firstName">
+        </div>
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input type="text" name="lastName">
+        </div>
+        <div class="form-group">
+          <label>Birthday:</label>
+          <input type="date" name="birthday">
+        </div>
+        <div class="btn-center">
+          <button class="btn btn-info" type="submit">Add Friend</button>
+        </div>
+      </form>  
+    </div>
   </div>
+ 
 </div>
 
 

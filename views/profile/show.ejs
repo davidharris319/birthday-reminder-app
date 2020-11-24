@@ -1,16 +1,24 @@
 <%- include('../partials/header') %>
-
-<section id="show-page">
-  <div>Name: </div>
-  <div><%= profile.name %></div>
-  <div>Email: </div>
-  <div><%= profile.email %></div>
-  <div>Phone Number: </div>
-  <div><%= profile.phoneNumber %></div>
-  <div>Birthday: </div>
-  <div><%= profile.birthday %></div>
-</section>
-
+<div class="container-width">
+  <div class="card">
+    <div class="row">
+      <div>Name: </div>
+      <div><%= profile.name %></div>
+    </div>
+    <div class="row">
+      <div>Email: </div>
+      <div><%= profile.email %></div>
+    </div>
+    <div class="row">
+      <div>Phone Number: </div>
+      <div><%= profile.phoneNumber %></div>
+    </div>
+    <div class="row">
+      <div>Birthday: </div>
+      <div><%= profile.birthday %></div>
+  </div>
+</div>
+</div>
 
 
 <%- include('../partials/footer') %>
