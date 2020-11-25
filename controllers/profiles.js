@@ -9,7 +9,6 @@ function create(req, res) {
   const profile = new Profile(req.body);
   //Asign the logged in user's id
   profile.user = req.user._id;
-  console.log(profile);
   profile.save(function(err) {
     if(err) return render('/profile/new', {profile});
     req.user.personalInfo = profile._id;
@@ -20,7 +19,6 @@ function create(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id, function(err, profile) {
-    console.log(profile);
     res.render('profile/show', {profile})
   });
 }

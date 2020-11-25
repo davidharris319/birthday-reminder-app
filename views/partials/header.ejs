@@ -14,7 +14,7 @@
       <!-- login UI here -->
         <% if (user) { %>
           <a class="nav-link navitems" href="/users/<%= user._id %>">Home</a>
-          <% if (user.peronalInfo) { %>
+          <% if (user.personalInfo) { %>
           <a class="nav-link navitems" href="/profile/<%= user.personalInfo._id %>">Profile</a>
           <% } %>
           <a class="nav-link navitems" href="/logout">Log Out</a>

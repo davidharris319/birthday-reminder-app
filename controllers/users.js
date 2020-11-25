@@ -12,7 +12,6 @@ function show(req, res) {
       if (!user.personalInfo) {
         return res.render(`profile/new`);
       };
-        console.log(user);
         return res.render(`users/show`, { user })
     });
 }
