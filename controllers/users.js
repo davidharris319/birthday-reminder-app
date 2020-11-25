@@ -12,7 +12,8 @@ function show(req, res) {
       if (!user.personalInfo) {
         return res.render(`profile/new`);
       };
-        return res.render(`users/show`, { user })
+        console.log(user);
+        return res.render(`users/show`, { user, currentUser: req.user })
     });
 }
 

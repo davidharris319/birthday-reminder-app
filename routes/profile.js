@@ -3,12 +3,12 @@ var router = express.Router();
 var profilesCtrl = require('../controllers/profiles');
 
 /* GET users listing. */
-router.get('/new', profilesCtrl.new);
-router.get('/:id', profilesCtrl.show);
-router.get('/:id/edit', profilesCtrl.edit);
-router.put('/:id', profilesCtrl.update);
+router.get('/new', isLoggedIn, profilesCtrl.new);
+router.get('/:id', isLoggedIn, profilesCtrl.show);
+router.get('/:id/edit', isLoggedIn, profilesCtrl.edit);
+router.put('/:id', isLoggedIn, profilesCtrl.update);
 
-router.post('/', profilesCtrl.create);
+router.post('/', isLoggedIn, profilesCtrl.create);
 
 // router.post('/f', isLoggedIn, profilesCtrl.addFriend);
 

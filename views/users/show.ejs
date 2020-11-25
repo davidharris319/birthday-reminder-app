@@ -21,17 +21,17 @@
             <td><%= friend.firstName %></td>
             <td><%= friend.lastName %></td>
             <td><%= friend.birthday %></td>
-            <td>
-              <button class="btn btn-info">
-                <a class="edit-button" href="/friends/<%=friend._id %>/edit">Edit</a>
-              </button>
-            </td>
-            <td>
-              <form action="/friends/<%= friend._id %>?_method=DELETE" class="delete-form" method="POST">
-                <button class="btn btn-danger" type="submit">X</button>
-              </form>
-            </td>
-          </tr>
+              <td>
+                <button class="btn btn-info">
+                  <a class="edit-button" href="/friends/<%=friend._id %>/edit">Edit</a>
+                </button>
+              </td>
+              <td>
+                <form action="/friends/<%= friend._id %>?_method=DELETE" class="delete-form" method="POST">
+                  <button class="btn btn-danger" type="submit">X</button>
+                </form>
+              </td>
+            </tr>
           <% }); %>
         </tbody>
       </table>

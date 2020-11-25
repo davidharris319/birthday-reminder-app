@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var usersCtrl = require('../controllers/users');
 
-router.get('/:id', usersCtrl.show);
+router.get('/:id', isLoggedIn, usersCtrl.show);
 
 // router.post('/f', isLoggedIn, profilesCtrl.addFriend);
 
