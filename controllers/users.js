@@ -13,7 +13,7 @@ function show(req, res) {
         return res.render(`profile/new`);
       };
         console.log(user);
-        return res.render(`users/show`, { user, currentUser: req.user })
+        return res.render(`users/show`, { user })
     });
 }
 
