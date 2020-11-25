@@ -35,3 +35,8 @@ input {
 .card {
   border: none;
 }
+
+#center {
+  margin: auto;
+  display: flex;
+}

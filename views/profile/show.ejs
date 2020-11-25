@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<div class="container-width">
+<div class="container-width mx-auto">
   <div class="card">
     <div class="row">
       <div>Name: </div>
@@ -16,9 +16,11 @@
     <div class="row">
       <div>Birthday: </div>
       <div><%= profile.birthday %></div>
+    </div>
   </div>
 </div>
-</div>
-
+<button class="btn btn-info" id="center">
+  <a class="edit-button" href="/profile/<%=profile._id %>/edit">Edit</a>
+</button>
 
 <%- include('../partials/footer') %>

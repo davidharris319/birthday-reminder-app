@@ -14,14 +14,12 @@
 
 
 /* 
-* For each friend
 
 
-user.friends.forEach(function(friend, index) { 
-* If today === f.birthday
 
-
-client.messages
+User.friends.forEach(function(friend, index) { 
+* If (getToday === friend.birthday) {
+  client.messages
   .create({
     body: `It is ${friend.firstName} ${friend.lastName}'s birthday today! Remember to send them something nice!`,
     from --> `+1{user.phoneNumber}`,
@@ -30,7 +28,7 @@ client.messages
  .then(message => console.log(message.sid));
 }
 
-function getDate() {
+function getToday() {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = Strig(today.getMonth() + 1).padStart(2, '0');
