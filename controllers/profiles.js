@@ -10,7 +10,7 @@ function create(req, res) {
   //Asign the logged in user's id
   profile.user = req.user._id;
   profile.save(function(err) {
-    if(err) return render('/profile/new', {profile});
+    if(err) return res.render('profile/new', {profile});
     req.user.personalInfo = profile._id;
     req.user.save()
     .then(() => res.redirect(`/profile/${profile._id}`))
