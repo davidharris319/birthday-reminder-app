@@ -17,6 +17,11 @@ table {
   width: 60%;
 }
 
+.container-width {
+  width: 30%;
+  margin: 0 auto;
+}
+
 .form-container {
   padding-left: 50px;
 }
@@ -25,4 +30,13 @@ input {
   align-content: flex-end;
   border: 1px solid lightgrey;
   border-radius: 5px;
+}
+
+.card {
+  border: none;
+}
+
+#center {
+  margin: auto;
+  display: flex;
 }

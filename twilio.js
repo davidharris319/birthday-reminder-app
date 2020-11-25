@@ -14,12 +14,27 @@
 
 
 /* 
-* For each friend
-* If today === f.birthday
-* create message
-* body --> It is ${f.firstName} ${f.lastName}'s birthday. Send them a text! 
-* from --> `+16479526362`
-* to: `+${user.phoneNumber}`
-* .then(message => console.log(message.sid));
+
+
+
+User.friends.forEach(function(friend, index) { 
+* If (getToday === friend.birthday) {
+  client.messages
+  .create({
+    body: `It is ${friend.firstName} ${friend.lastName}'s birthday today! Remember to send them something nice!`,
+    from --> `+1{user.phoneNumber}`,
+    to: `+1${friend.phoneNumber}`
+  })
+ .then(message => console.log(message.sid));
+}
+
+function getToday() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = Strig(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+
+  return `${yyyy}-${mm}-${dd}`
+}
 
 */
