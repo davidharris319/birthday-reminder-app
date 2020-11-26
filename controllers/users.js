@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Profile = require('../models/profile');
+const Twilio = require('../config/twilio');
 
 function show(req, res) {
   User.findById(req.params.id)
@@ -12,6 +13,8 @@ function show(req, res) {
       if (!user.personalInfo) {
         return res.render(`profile/new`);
       };
+        Twilio.checkNotifiedStatus(user);
+        Twilio.processBirthdayMessage(user);
         return res.render(`users/show`, { user })
     });
 }

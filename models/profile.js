@@ -4,7 +4,7 @@ const TrustedComms = require('twilio/lib/rest/preview/TrustedComms');
 var profileSchema = new mongoose.Schema({
   name: {
     type: String,
-    require: true
+    required: true
   },
   email: {
     type: String,
