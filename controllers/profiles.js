@@ -13,7 +13,7 @@ function create(req, res) {
     if(err) return res.render('profile/new', {profile});
     req.user.personalInfo = profile._id;
     req.user.save()
-    .then(() => res.redirect(`/profile/${profile._id}`))
+    .then(() => res.redirect(`/users/${req.user._id}`))
   });
 }
 
