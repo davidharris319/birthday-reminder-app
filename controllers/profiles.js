@@ -32,7 +32,6 @@ function edit(req, res) {
 
 function update(req, res) {
   Profile.findById(req.params.id, function(err, profile) {
-    console.log(profile);
     profile.name = req.body.name;
     profile.email = req.body.email;
     profile.birthday = req.body.birthday;
