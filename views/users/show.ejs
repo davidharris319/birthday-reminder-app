@@ -1,7 +1,11 @@
 <%- include('../partials/header') %>
-<div class="card text-center">
-  <h1 class="">Friend List</h1> 
-  <p>Add your friends to the below to receive a reminder text on their birthday. Never forget a friend's birthday again!</p>
+<main class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-info rounded shadow-sm">
+    <div class="lh-100">
+      <h5 class="mb-0 text-white lh-100">Friend List</h5>
+    </div>
+  </div>
+  <p class="d-flex justify-content-center description">Add your friends to the below to receive a reminder text on their birthday. Never forget a friend's birthday again!</p>
   </section>
   <div class="container">
     <% if (user.friends.length > 0) { %>
@@ -36,10 +40,10 @@
         </tbody>
       </table>
     <% } else { %>
-    <h5>No Friends Added Yet</h5>
+    <h5 class="d-flex justify-content-center no-friends-yet">No Friends Added Yet</h5>
     <% } %>
-    <div class="mx-auto form-container">
-      <form class="form-center" action="<%= user._id %>/friends" method="POST">
+    <div class="d-flex justify-content-center">
+      <form class="form-margin" action="<%= user._id %>/friends" method="POST">
         <div class="form-group">
           <label>First Name:</label>
           <input type="text" name="firstName">
@@ -49,17 +53,17 @@
           <input type="text" name="lastName">
         </div>
         <div class="form-group">
-          <label>Birthday:</label>
+          <label class="update-profile-margin">Birthday:</label>
           <input type="date" name="birthday">
         </div>
         <div class="btn-center">
-          <button class="btn btn-info" type="submit">Add Friend</button>
+          <button class="btn btn-info" id="center" type="submit">Add Friend</button>
         </div>
       </form>  
     </div>
   </div>
  
-</div>
+</main>
 
 
 <%- include('../partials/footer') %>
