@@ -12,11 +12,6 @@ table {
   color: white;
 }
 
-.form-center {
-  margin: 0 auto;
-  width: 60%;
-}
-
 .container-width {
   width: 30%;
   margin: 0 auto;
@@ -32,6 +27,14 @@ input {
   border-radius: 5px;
 }
 
+.update-profile-margin {
+  margin-right: 15px;
+}
+
+.profile-info {
+  margin-left: 15px;
+}
+
 .card {
   border: none;
 }
@@ -39,4 +42,23 @@ input {
 #center {
   margin: auto;
   display: flex;
+}
+
+.description {
+  padding: 10px 0;
+}
+
+.no-friends-yet {
+  padding-bottom: 20px;
+}
+
+.form-margin {
+  margin-left: 50px;
+}
+
+.birthday-img {
+  border-radius: 50px;
+  display: flex;
+  margin: auto;
+  width: 750px;
 }
